@@ -6,6 +6,8 @@ from apps.PLAN_ADMIN.views import (
     PlanTaskCUDAPIView,
     CommentListAPIView,
     CommentCUDAPIView,
+    GallaryListAPIView,
+    GallaryCUDAPIView,
 )
 
 app_name = "cms"
@@ -20,6 +22,10 @@ router.register('task/cud',PlanTaskCUDAPIView,basename="task-cud")
 
 router.register('comment/list',CommentListAPIView,basename="comment-list")
 router.register('comment/cud',CommentCUDAPIView,basename="comment-cud")
+
+
+router.register('gallary/list',GallaryListAPIView,basename="gallary-list")
+router.register('gallary/cud',GallaryCUDAPIView,basename="gallary-cud")
 
 
 urlpatterns = [
