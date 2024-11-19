@@ -4,16 +4,18 @@ from apps.PLAN_ADMIN.models import PlanTask
 
 class PlanTaskReadSerializer(ReadSerializer):
     class Meta(ReadSerializer.Meta):
-        models=PlanTask
+        model=PlanTask
         fields = [
             "id",
             "uuid",
             "plan",
+            "status",
         ]
 
 class PlanTaskWriteSerializer(WriteSerializer):
     class Meta(WriteSerializer.Meta):
-        models = PlanTask
+        model = PlanTask
         fields = [
-            "plan"
+            "plan",
+            "status",
         ]

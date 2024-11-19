@@ -1,11 +1,21 @@
 from apps.BASE.base import AppAPIView
+from apps.BASE.views import ListAPIViewSet,CUDAPIViewSet
 from apps.PLAN_ADMIN.helpers import STATUS
 from apps.PLAN_ADMIN.models import PlanTask
+from apps.PLAN_ADMIN.serializer import PlanTaskReadSerializer,PlanTaskWriteSerializer
 
 
 
 
-class 
+class PlanTaskListAPIView(ListAPIViewSet):
+    queryset = PlanTask.objects.all()
+    serializer_class = PlanTaskReadSerializer
+
+class PlanTaskCUDAPIView(CUDAPIViewSet):
+    queryset = PlanTask.objects.all()
+    serializer_class = PlanTaskWriteSerializer
+
+    
 
 class PlanTaskAPIView(AppAPIView):
     def post(self, request, *args, **kwargs):

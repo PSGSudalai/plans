@@ -6,7 +6,9 @@ from django.db import models
 
 class PlanTask(BaseModel):
     plan =models.CharField(max_length=MAX_CHAR_FIELD_LENGTH, **DEFAULT_BLANK_NULLABLE_FIELD_CONFIG)
-    comment =models.CharField(max_length=MAX_CHAR_FIELD_LENGTH, **DEFAULT_BLANK_NULLABLE_FIELD_CONFIG)
     status = AppSingleChoiceField(choices_config=STATUS, **DEFAULT_BLANK_NULLABLE_FIELD_CONFIG)
+
+
+
 
 
