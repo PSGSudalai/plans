@@ -17,5 +17,4 @@ class PlanTaskWriteSerializer(WriteSerializer):
         model = PlanTask
         fields = [
             "plan",
-            "status",
         ]
