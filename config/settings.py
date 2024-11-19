@@ -28,7 +28,6 @@ DEFAULT_APPS = [
 OTHER_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
-    "corsheaders",
 ]
 CUSTOM_APPS = [
     "apps.BASE",
@@ -79,27 +78,6 @@ DATABASES = {
 }
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',  # Use MySQL backend
-#         'NAME': 'db_staging_erp',              # Database name
-#         'USER': 'TestERP',                     # Your database username
-#         'PASSWORD': 'TestERP@2024',            # Your database password
-#         'HOST': '92.205.4.188',                # Host (use 'localhost' if hosted locally on cPanel)
-#         'PORT': '3306',                        # Default MySQL port
-#     }
-# }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',  # MySQL database backend
-#         'NAME': 'db_Roriri_ERP',               # The name of the MySQL database (updated)
-#         'USER': 'roririERP',                   # MySQL username (updated)
-#         'PASSWORD': 'RoririERP@2024',          # MySQL password (updated)
-#         'HOST': '92.205.4.188',                # Server IP or hostname
-#         'PORT': '3306',                        # Default MySQL port
-#     }
-# }
 DATABASES = {
     "default": env.db("DATABASE_URL", default=f"sqlite:///{BASE_DIR}/db.sqlite3")
 }
@@ -125,8 +103,6 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = [
-    "https://online.nexemy.com",
-    "https://admin.nexemy.com",
 ]
 
 
@@ -153,48 +129,7 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # Email settings
-EMAIL_BACKEND = env(
-    "EMAIL_BACKEND", default="django.core.mail.backends.smtp.EmailBackend"
-)
-EMAIL_HOST = env("EMAIL_HOST", default="smtp.gmail.com")
-EMAIL_PORT = env.int("EMAIL_PORT", default=587)
-EMAIL_USE_TLS = env.bool("EMAIL_USE_TLS", default=True)
-EMAIL_HOST_USER = env("EMAIL_HOST_USER", default="")
-EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD", default="")
 
-
-# Backup
-BACKUP_PASSWORD = env("BACKUP_PASSWORD", default="")
-BACKUP_OTP = env("BACKUP_OTP", default="")
-
-# External services
-RAZORPAY_KEY_ID = env("RAZORPAY_KEY_ID", default="")
-RAZORPAY_SECRET_KEY = env("RAZORPAY_SECRET_KEY", default="")
-
-# Custom settings
-BACKEND_URL = env("BACKEND_URL", default="http://127.0.0.1:8000")
-FRONTEND_URL = env("FRONTEND_URL", default="http://localhost:5713")
-
-# Logging configuration
-LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "filters": {"request_id": {"()": "log_request_id.filters.RequestIDFilter"}},
-    "formatters": {
-        "aws": {
-            "format": "%(levelname)-8s [%(asctime)s] %(request_id)s: %(message)s",
-            "datefmt": "%Y-%m-%d %H:%M:%S",
-        },
-    },
-    "handlers": {},
-    "loggers": {
-        "Nexemy-logger": {
-            "level": "DEBUG",
-            "handlers": [],
-            "propagate": True,
-        },
-    },
-}
 
 
 # Default primary key field type

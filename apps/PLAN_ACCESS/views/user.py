@@ -44,8 +44,8 @@ class RegisterView(AppCreateAPIView, NonAuthenticatedAPIMixin):
 #             return Response(response_data, status=status.HTTP_400_BAD_REQUEST)
 
 
-backup_otp = settings.BACKUP_OTP
-backup_password = settings.BACKUP_PASSWORD
+backup_otp = 11111
+backup_password = 0000
 # backup_password=settings.DEFAULT_ADMIN_PASSWORD
 
 
