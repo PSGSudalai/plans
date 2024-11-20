@@ -20,7 +20,7 @@ DEFAULT_BLANK_NULLABLE_FIELD_CONFIG = {
 class BaseModel(models.Model):
     uuid = models.UUIDField(default=uuid.uuid4, editable=False)
 
-    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    created_at = models.DateField(auto_now_add=True, null=True)
 
     created_by = models.ForeignKey(
         to=settings.AUTH_USER_MODEL,
