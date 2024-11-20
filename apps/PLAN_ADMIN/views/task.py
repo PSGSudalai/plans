@@ -8,6 +8,8 @@ from apps.PLAN_ADMIN.serializer import PlanTaskReadSerializer,PlanTaskWriteSeria
 
 
 class PlanTaskListAPIView(ListAPIViewSet):
+    search_fields=["plan"]
+    filterset_fields=["status"]
     queryset = PlanTask.objects.all().order_by("-modified_at")
     serializer_class = PlanTaskReadSerializer
 
